@@ -33,5 +33,5 @@ def lambda_handler(event, context):
             except ec2.exceptions.ClientError as e:
                 if e.response['Error']['Code'] == 'InvalidVolume.NotFound':
                     # The volume associated with the snapshot is not found (it might have been deleted)
-                    ec2.delete_snapshot(SnapshotId=snapshot_id)
+                    ec2.delete_snapshot(SnapshotId=snapshot_id)   ;;;;;;
                     print(f"Deleted EBS snapshot {snapshot_id} as its associated volume was not found.")
